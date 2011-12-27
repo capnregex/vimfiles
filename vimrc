@@ -15,8 +15,8 @@ set hidden
 set nobackup
 set noswapfile
 
-source $VIMRUNTIME/mswin.vim
-behave mswin
+" source $VIMRUNTIME/mswin.vim
+" behave mswin
 
 " set English language
 language messages en_US
@@ -120,12 +120,12 @@ set whichwrap+=<,>,[,],h,l
 "" set filetype check on
 filetype plugin indent on
 syntax on
-set background=dark
+"set background=dark
 "colorscheme ir_black
 "colorscheme desert
 "colorscheme molokai
 "colorscheme Mustang
-colorscheme solarized
+"colorscheme solarized
 
 "" Load snippets
 "try
@@ -380,7 +380,6 @@ function! ToggleFullScreen()
       hi NonText guifg=bg
       set fullscreen
     endif
-    :CMiniBufExplorer
   else
     let g:fullscreenmode = 0
     set guioptions+=mr
@@ -390,20 +389,7 @@ function! ToggleFullScreen()
     if has("gui_macvim")
       set nofullscreen
     endif
-    :MiniBufExplorer
     execute "normal \<c-w>w"
-  endif
-endfunction
-
-"" Fix for quitting with just one window open (MiniBufExplorer bug)
-au BufEnter * call MyLastWindow()
-function! MyLastWindow()
-  " if the window is quickfix go on
-  if &buftype=="nofile"
-    " if this window is last on screen quit without warning
-    if winnr('$') < 2
-      quit!
-    endif
   endif
 endfunction
 
@@ -460,24 +446,6 @@ highlight Tb_Changed guifg=#CD5907 guibg=fg
 highlight Tb_VisibleNormal guifg=#5DC2D6 guibg=fg
 highlight Tb_VisibleChanged guifg=#F1266F guibg=fg
 
-"" MiniBufExplorer settings
-"autocmd BufEnter -MiniBufExplorer- execute "normal \<c-w>w"
-let g:miniBufExplMaxSize = 3
-let g:miniBufExplMinSize = 1
-let g:miniBufExplorerMoreThanOne=0
-let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplModSelTarget = 1
-let g:miniBufExplMapWindowNavArrows = 0
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplCheckDupeBufs = 0
-
-hi MBEVisibleActive guifg=#A6DB29 guibg=fg
-hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
-hi MBEVisibleChanged guifg=#F1266F guibg=fg
-hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
-hi MBEChanged guifg=#CD5907 guibg=fg
-hi MBENormal guifg=#808080 guibg=fg
 
 "" Jekyll settings
 if has("gui_macvim")
