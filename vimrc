@@ -538,8 +538,6 @@ imap <silent> <F1> <esc>:NERDTreeFind<CR>
 nmap <silent> <F1> :NERDTreeFind<CR>
 
 "" List/Next/Previous buffers
-map <silent> <F2> <esc>:BufExplorer<CR>
-imap <silent> <F2> <C-O>:BufExplorer<CR>
 map <silent> <F3> <esc>:bp<CR>
 imap <silent> <F3> <C-O>:bp<CR>
 map <silent> <F4> <esc>:bn<CR>
